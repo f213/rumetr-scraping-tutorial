@@ -104,6 +104,7 @@ class Spider(scrapy.Spider):
                             is_studio=appt['roomQuantity'] in ['С', 'C'],
                             square=appt['wholeAreaBti'],
                             price=appt['wholePrice'],
+                            plan_url=appt.get('planing', dict()).get('srcLayout'),
                         )
 
     def _parse_home_page(self, response) -> dict:
